@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap49-52</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005bb5;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: red;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .script-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 580px;
+            width: 100%;
+            margin: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn,
+        .edit-btn {
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+            /* Adds space between buttons */
+        }
+
+        .delete-btn {
+            background-color: #d9534f;
+            /* Red for delete */
+        }
+
+        .edit-btn {
+            background-color: #5bc0de;
+            /* Light blue for edit */
+        }
+
+        .delete-btn:hover {
+            background-color: #c9302c;
+            /* Darker red on hover */
+        }
+
+        .edit-btn:hover {
+            background-color: #31b0d5;
+            /* Darker blue on hover */
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .form-container input {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .form-container input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html" class="back-link">&larr; Back</a>
+    <div class="container">
+        <h1>Chapter 49-52</h1>
+        <ul>
+            <li><a href="../q1/q1.html">Question #1</a></li>
+            <li><a href="../q2/q2.html">Question #2</a></li>
+            <li><a href="q3.html">Question #3</a></li>
+        </ul>
+    </div>
+
+    <div class="script-container">
+        <h3>Student Record</h3>
+        <form id="studentForm" class="form-container">
+            <input type="text" id="studentName" placeholder="Student Name" required>
+            <input type="number" id="studentAge" placeholder="Age" required>
+            <input type="text" id="studentGrade" placeholder="Grade" required>
+            <button type="submit">Add Student</button>
+        </form>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('studentForm').onsubmit = function (event) {
+            var name = document.getElementById('studentName').value;
+            var age = document.getElementById('studentAge').value;
+            var grade = document.getElementById('studentGrade').value;
+
+            var table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+
+            newRow.insertCell(0).innerText = name;
+            newRow.insertCell(1).innerText = age;
+            newRow.insertCell(2).innerText = grade;
+
+            var actionsCell = newRow.insertCell(3);
+            var deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Delete';
+            deleteButton.className = 'delete-btn';
+            deleteButton.onclick = function () {
+                table.deleteRow(newRow.rowIndex - 1);
+            };
+
+            var editButton = document.createElement('button');
+            editButton.innerText = 'Edit';
+            editButton.className = 'edit-btn';
+            editButton.onclick = function () {
+                document.getElementById('studentName').value = name;
+                document.getElementById('studentAge').value = age;
+                document.getElementById('studentGrade').value = grade;
+                table.deleteRow(newRow.rowIndex - 1);
+            };
+
+            actionsCell.appendChild(deleteButton);
+            actionsCell.appendChild(editButton);
+
+            document.getElementById('studentForm').reset();
+        };
+    </script>
+</body>
+
+</html>

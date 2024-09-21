@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap49-52</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005bb5;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: red;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .script-container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: calc(100% - 10px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #0073e6;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            width: 100%;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .result div {
+            margin-bottom: 10px;
+        }
+
+        .result span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html" class="back-link">&larr; Back</a>
+    <div class="container">
+        <h1>Chapter 49-52</h1>
+        <ul>
+            <li><a href="q1.html">Question #1</a></li>
+            <li><a href="../q2/q2.html">Question #2</a></li>
+            <li><a href="../q3/q3.html">Question #3</a></li>
+        </ul>
+    </div>
+
+    <div class="script-container">
+        <h1>Signup Form</h1>
+        <form id="signupForm">
+            <label>First Name:</label>
+            <input type="text" id="firstName" required>
+
+            <label>Last Name:</label>
+            <input type="text" id="lastName" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" required>
+
+            <label>Gender:</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <h3>Submitted Data:</h3>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').onsubmit = function(event) {
+
+
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var gender = document.getElementById('gender').value;
+            var dob = document.getElementById('dob').value;
+
+            document.getElementById('result').innerHTML = 
+                '<div><span>First Name:</span> ' + firstName + '</div>' +
+                '<div><span>Last Name:</span> ' + lastName + '</div>' +
+                '<div><span>Email:</span> ' + email + '</div>' +
+                '<div><span>Gender:</span> ' + gender + '</div>' +
+                '<div><span>Date of Birth:</span> ' + dob + '</div>';
+
+            // Clear the form after submission
+            document.getElementById('signupForm').reset();
+        };
+    </script>
+</body>
+
+</html>

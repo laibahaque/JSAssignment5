@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap58-67</title>
+    <style>
+       
+       
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005bb5;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: red;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        li li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .script-container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .container,
+        .script-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .script-container h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #main-content {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .render {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .render strong {
+            color: #0073e6;
+        }
+
+        .result {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.6;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 550px;
+            text-align: left;
+        }
+
+        .result span {
+            font-weight: bold;
+            color: #0073e6;
+        }
+
+        p.render {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html" class="back-link">&larr; Back</a>
+    <div class="container">
+        <h1>Chapter 58-67</h1>
+        <ul>
+            <li><a href="../q1/q1.html">Question #1</a></li>
+            <li><a href="q2.html">Question #2</a></li>
+        </ul>
+    </div>
+
+    <div class="script-container">
+        <div>
+            <h1> DOM Manipulation </h1>
+
+            <div id="form-content" class="content">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Enter first name" />
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Enter last name" />
+
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email address" />
+            </div>
+
+            <div id="main-content" class="content">
+                <p class="render">First Name: Alex</p>
+                <p class="render" id="lastName">Last Name: Bank</p>
+                <p class="render">Email: alexbank@example.com</p>
+                <p class="render">Country: Pakistan</p>
+                <p class="render">Contact: +92300 1234567</p>
+            </div>
+        </div>
+
+        <script>
+            document.write('<div class="result">');
+            // i. Get the node type of the element having id "form-content"
+            var formContent = document.getElementById('form-content');
+            document.write("<span>Node type of 'form-content':</span> " + formContent.nodeType + "<br>");
+
+            // ii. Show node type of element having id "lastName" and its child node
+            var lastNameElement = document.getElementById('lastName');
+            document.write("<span>Node type of 'lastName':</span> " + lastNameElement.nodeType + "<br>");
+            document.write("<span>Node type of 'lastName' child:</span> " + lastNameElement.firstChild.nodeType + "<br>");
+
+            // iii. Update the child node of element having id "lastName"
+            lastNameElement.innerHTML = "Last Name:</strong> <u>Doe</u>";
+
+            document.write("<span>Updated 'lastName' child node text:</span> " + lastNameElement.textContent + "<br>");
+
+            // iv. Get the first and last child of id "main-content"
+            var mainContent = document.getElementById('main-content');
+            document.write("<span>First child of 'main-content':</span> " + mainContent.firstChild.textContent + "<br>");
+            document.write("<span>Last child of 'main-content':</span> " + mainContent.lastChild.textContent + "<br>");
+
+            // v. Get next and previous siblings of id "lastName"
+            var nextSibling = lastNameElement.nextElementSibling;
+            var previousSibling = lastNameElement.previousElementSibling;
+            document.write("<span>Next sibling of 'lastName':</span> " + (nextSibling ? nextSibling.textContent : "None") + "<br>");
+            document.write("<span>Previous sibling of 'lastName':</span> " + (previousSibling ? previousSibling.textContent : "None") + "<br>");
+
+            // vi. Get parent node and node type of element having id "email"
+            var emailElement = document.getElementById('email');
+            document.write("<span>Parent node of 'email':</span> " + emailElement.parentNode.nodeName + "<br>");
+            document.write("<span>Node type of 'email':</span> " + emailElement.nodeType + "<br>");
+            document.write('</div>');
+        </script>
+    </div>
+</body>
+
+</html>

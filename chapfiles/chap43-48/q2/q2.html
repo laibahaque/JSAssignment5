@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap43-48</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005bb5;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: red;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        li li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .script-container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 550px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .container,
+        .script-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+        }
+
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-item img {
+            width: 150px;
+            height: 250px; /* Set the height and width equally for all images */
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: cover; /* Ensures images are scaled properly within the given dimensions */
+            transition: transform 0.3s ease;
+        }
+
+        .image-item img:hover {
+            transform: scale(1.1);
+            border-color: #4CAF50;
+        }
+
+        .mobile-name {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html" class="back-link">&larr; Back</a>
+    <div class="container">
+        <h1>Chapter 43-48</h1>
+        <ul>
+            <li><a href="../q1/q1.html">Question #1</a></li>
+            <li><a href="q2.html">Question #2</a></li>
+            <li><a href="../q3/q3.html">Question #3</a></li>
+            <li><a href="../q4/q4.html">Question #4</a></li>
+            <li><a href="../q5/q5.html">Question #5</a></li>
+        </ul>
+    </div>
+
+    <div class="script-container">
+        <h3>Mobile Image Gallery:</h3>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="../images/images.jpeg" alt="Iphone-16PRO" onclick="showAlert('Iphone-16PRO')">
+                <div class="mobile-name">Iphone-16PRO</div>
+            </div>
+            <div class="image-item">
+                <img src="../images/HUAWEI-P30.jpg" alt="HUAWEI-P30" onclick="showAlert('HUAWEI-P30')">
+                <div class="mobile-name">HUAWEI-P30</div>
+            </div>
+            <div class="image-item">
+                <img src="../images/Samsung-Galaxy-S24-Ultra.jpg" alt="Samsung-Galaxy-S24-Ultra" onclick="showAlert('Samsung-Galaxy-S24-Ultra')">
+                <div class="mobile-name">Samsung-Galaxy-S24-Ultra</div>
+            </div>
+        </div>
+
+        <script>
+            function showAlert(mobileName) {
+                alert("Thank you for purchasing " + mobileName);
+            }
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chap43-48</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005bb5;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #0073e6;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: red;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .script-container {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            margin: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html" class="back-link">&larr; Back</a>
+    <div class="container">
+        <h1>Chapter 43-48</h1>
+        <ul>
+            <li><a href="../q1/q1.html">Question #1</a></li>
+            <li><a href="../q2/q2.html">Question #2</a></li>
+            <li><a href="q3.html">Question #3</a></li>
+            <li><a href="../q4/q4.html">Question #4</a></li>
+            <li><a href="../q5/q5.html">Question #5</a></li>
+        </ul>
+    </div>
+
+    <div class="script-container">
+        <h3>Student Record Table</h3>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>20</td>
+                    <td>A</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>19</td>
+                    <td>B+</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Emily Brown</td>
+                    <td>21</td>
+                    <td>A-</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Michael White</td>
+                    <td>22</td>
+                    <td>B</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Sarah Davis</td>
+                    <td>18</td>
+                    <td>A+</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Chris Miller</td>
+                    <td>20</td>
+                    <td>C</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Olivia Johnson</td>
+                    <td>19</td>
+                    <td>B-</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>David Brown</td>
+                    <td>21</td>
+                    <td>B+</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Emma Wilson</td>
+                    <td>22</td>
+                    <td>A</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Liam Taylor</td>
+                    <td>23</td>
+                    <td>B+</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function deleteRow(button) {
+            var table = document.getElementById('studentTable');
+            var rows = table.getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    if (rows[i].contains(button)) {
+                        for (var j = 0; j < cells.length; j++) {
+                            cells[j].innerHTML = '';
+                        }
+                        rows[i].style.display = 'none';
+                        break;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
