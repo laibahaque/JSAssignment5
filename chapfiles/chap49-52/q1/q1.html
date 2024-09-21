@@ -196,7 +196,7 @@
 
     <script>
         document.getElementById('signupForm').onsubmit = function(event) {
-
+            event.preventDefault();
 
             var firstName = document.getElementById('firstName').value;
             var lastName = document.getElementById('lastName').value;
