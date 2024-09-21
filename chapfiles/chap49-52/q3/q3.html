@@ -211,6 +211,7 @@
 
     <script>
         document.getElementById('studentForm').onsubmit = function (event) {
+            event.preventDefault();
             var name = document.getElementById('studentName').value;
             var age = document.getElementById('studentAge').value;
             var grade = document.getElementById('studentGrade').value;
